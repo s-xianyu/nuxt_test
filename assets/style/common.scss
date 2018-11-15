@@ -1,0 +1,108 @@
+@charset"UTF-8";
+html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:transparent;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;margin:0 auto;padding:0}
+body{font-size:.4rem;width:12.4rem;height:100%;background-color:#f7f7f7;color:#333;margin:0 auto;padding:0}
+img{display:block;max-width:100%}
+dd,dl,dt,li,ol,ul{list-style:none;margin:0;padding:0}
+.clear:after{visibility:hidden;display:block;font-size:0;content:".";clear:both;height:0}
+* html .clear{zoom:1}a{text-decoration:none;outline:0;color:#666}
+a:not(href){cursor:pointer}
+a:visited{color:#333}
+::selection{background:#f7f7f7;color:#fff}
+i,em{font-style:normal}
+input,textarea{-webkit-appearance:none;border-radius:0;font-size:.22rem;padding:0}
+div,span,header,footer,nav,section,aside,article,ul,dl,dt,dd,
+li,p,h1,h2,h3,h4,h5,h6,i,b,textarea,button,input,select,
+figure,figcaption{padding:0;margin:0;list-style:none;font-style:normal;text-decoration:none;border:none;font-weight:normal;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+body:hover,div:hover,span:hover,header:hover,footer:hover,nav:hover,
+section:hover,aside:hover,article:hover,ul:hover,dl:hover,dt:hover,
+dd:hover,li:hover,a:hover,p:hover,
+h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,
+h6:hover,i:hover,b:hover,textarea:hover,button:hover,
+input:hover,select:hover,figure:hover,figcaption:hover{outline:none}
+.pad3{padding:0 .3rem}
+.textc{text-align:center}
+.fl{float:left}
+.fr{float:right}
+.hide{display:none}
+.show{display:block}
+.ellipse{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+$cr:#f60; //主体
+$linear:#ffbc00;  //渐变
+$boc:#e1e1e1;
+$fff:#fff;
+.f60{color:$cr}
+//背景图片
+@mixin bis($url){
+  background:{
+    image:url($url);
+    repeat: no-repeat;
+    size: 100% 100%;
+  }
+}
+//fixed位置
+@mixin fixed($position, $rem){
+  position:fixed;
+  @if $position == top{
+    top:$rem;
+    left:0;
+    right:0;
+  }
+  @else if $position == bottom{
+    bottom:$rem;
+    left:0;
+    right:0;
+  }
+  @else if $position == left{
+    top:0;
+    bottom:0;
+    left:$rem;
+  }
+  @else if $position == right{
+    top:0;
+    bottom:0;
+    right:$rem;
+  }
+  @else if $position == center{
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+  }
+}
+//圆角
+@mixin borRadius($radius){
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+//定位居中
+@mixin center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+//宽and高
+@mixin wh($width,$height){
+  width: $width;
+  height:$height;
+}
+
+//字体大小、行高、字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {
+  font: #{$size}/#{$line-height} $family;
+}
+
+//flex
+@mixin flexCenter($position){
+  display: flex;
+  justify-content: $position;
+  align-items:center;
+}
+@mixin flex($lot){
+  flex:$lot;
+}
