@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ msg }} id:{{id}}</h2>
+  <h2>车辆ID:{{id}}</h2>
 </template>
 
 <script>
@@ -16,6 +16,9 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  h2{
+    padding:200px 0;
+    text-align: center;
+  }
 </style>
