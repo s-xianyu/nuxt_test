@@ -18,6 +18,7 @@
     data() {
       return {
         msg: 'reg',
+        title:'充值'
       }
     },
   }
