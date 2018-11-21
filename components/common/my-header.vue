@@ -24,29 +24,31 @@
         </ul>
       </div>
     </div>
-    <div class="login" v-if="loginShow">
-      <div class="bg"></div>
-      <el-collapse-transition name="el-zoom-in-center">
-        <div class="loginCon transition-box">
-          <div class="top">
-            <span>登录/注册</span>
-            <span class="el-icon-close icon" @click="loginClose"></span>
-          </div>
-          <div class="center">
-            <el-input type="text" v-model="userName" placeholder="请输入用户名"></el-input>
-            <el-input type="password" v-model="passWord" placeholder="请输入密码"></el-input>
-          </div>
-          <div class="bottom">
-            <el-button type="primary" @click="login" icon="el-icon-news">登录</el-button>
-          </div>
-        </div>
-      </el-collapse-transition>
-    </div>
+    <login :loginShow="loginShow" v-on:loginHide="loginHideFun"/>
+    <!--<div class="login" v-if="loginShow">-->
+      <!--<div class="bg"></div>-->
+      <!--<el-collapse-transition name="el-zoom-in-center">-->
+        <!--<div class="loginCon transition-box">-->
+          <!--<div class="top">-->
+            <!--<span>登录/注册</span>-->
+            <!--<span class="el-icon-close icon" @click="loginClose"></span>-->
+          <!--</div>-->
+          <!--<div class="center">-->
+            <!--<el-input type="text" v-model="userName" placeholder="请输入用户名"></el-input>-->
+            <!--<el-input type="password" v-model="passWord" placeholder="请输入密码"></el-input>-->
+          <!--</div>-->
+          <!--<div class="bottom">-->
+            <!--<el-button type="primary" @click="login" icon="el-icon-news">登录</el-button>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</el-collapse-transition>-->
+    <!--</div>-->
   </div>
 </template>
 
 <script>
-  import { mapMutations,mapState,mapActions } from 'vuex'
+  import Login from '../common/my-login'
+  import { mapMutations,mapState } from 'vuex'
   export default {
     data() {
       return {
@@ -56,37 +58,22 @@
         userToggle:false
       }
     },
-    mounted(){
-      this.getUser()
+    components:{Login},
+    async fetch({store,params}){
+      await store.dispatch(`getUser`)
     },
     computed:{
       ...mapState(['isLogin','loginInfo'])
     },
     methods:{
-      ...mapMutations(['RECORD_USER','OUT_USER']),
-      ...mapActions(['getUser']),
+      ...mapMutations(['OUT_USER']),
 
       openLogin(){
         this.loginShow = !this.loginShow
         this.userToggle = false
       },
-      loginClose(){
-        this.loginShow = !this.loginShow
-      },
-      login(){
-        if(!this.userName){
-          this.$alert('请输入用户名','提示',{
-            confirmButtonText:'确定',
-          })
-        }else if(!this.passWord){
-          this.$alert('请输入密码','提示',{
-            confirmButtonText:'确定',
-          })
-        }else{
-          let userInfo = this.userName
-          this.RECORD_USER(userInfo)
-          this.loginShow = !this.loginShow
-        }
+      loginHideFun:function(data){
+        this.loginShow = data
       },
       removeLogin(){
         this.OUT_USER()

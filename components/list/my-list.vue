@@ -18,7 +18,7 @@
             <i class="line"></i>
           </div>
           <div class="hover">
-            <router-link :to="{path:'/detail/detail',query:{id:item.id}}">
+            <router-link :to="{path:'/detail/'+item.id}">
               <p>本车可议价</p>
               <p>查看详情</p>
             </router-link>
@@ -31,7 +31,6 @@
 
 <script>
   import axios from '../../.nuxt/axios'
-
   export default {
     data() {
       return {
@@ -64,25 +63,12 @@
         }
       }
     },
-    // async asyncData () {
-    //   debugger
-    //   try{
-    //     const { data } = await axios.get(`/api/mobile/filteData.json`)
-    //     return {
-    //       list:data
-    //     }
-    //     console.log(data)
-    //   } catch (err) {
-    //     console.log(err)
-    //   }
-    // },
     methods: {
       async getData() {
-        this.$axios.get('/api/mobile/filteData.json',
+        this.$axios.post('/api/mobile/filteData.json',
           { params:this.params}
         ).then(res=>{
           this.list = res.data.carList
-          console.log(this.list)
         }).catch(err=>{
           console.log(err)
         })

@@ -1,5 +1,7 @@
 <template>
-  <h2>我是充值页面</h2>
+  <div>
+   <h2>{{msg}}</h2>
+  </div>
 </template>
 
 <script>
@@ -15,9 +17,9 @@
     },
     data() {
       return {
-        msg: 'reg'
+        msg: 'reg',
       }
-    }
+    },
   }
 </script>
 
