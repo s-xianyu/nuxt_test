@@ -18,7 +18,7 @@
     data() {
       return {
         msg: 'reg',
-        title:'充值'
+        title:'充值',
       }
     },
   }
