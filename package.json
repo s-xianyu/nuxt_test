@@ -15,6 +15,7 @@
     "@nuxtjs/proxy": "^1.2.4",
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.6",
+    "jquery": "^3.3.1",
     "koa": "^2.5.2",
     "node-sass": "^4.9.3",
     "nuxt": "^2.0.0",

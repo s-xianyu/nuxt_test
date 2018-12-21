@@ -1,9 +1,10 @@
 <template>
   <div>
-    <span v-if="!isLogin" @click="login">登录</span>
-    <span v-else @click="removeLogin">退出</span>
+    <el-button  v-if="!isLogin" @click="login" type="success">登录</el-button>
+    <el-button v-else @click="removeLogin" type="danger">退出</el-button>
     <login :loginShow="loginShow" v-on:loginHide="loginHideFun"/>
-
+    <el-button id="onc" type="primary" round>引入jqery 点击事件</el-button>
+    <span class="number">0</span>
     <div class="carousel">
       <el-carousel :interval="4000" type="card" height="200px">
         <el-carousel-item v-for="item in 6" :key="item">
@@ -11,14 +12,26 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-    <div>
-      <button @click="getHello">1</button>
-      <div class="">
-        <transition name="fade" mode="out-in" appear>
-          <p v-if="!mt">hello</p>
-          <p v-else>world</p>
-        </transition>
-      </div>
+    <div class="input">
+      初次上牌日期：
+      <el-select v-model="value2" placeholder="选择年份">
+        <el-option
+          v-for="item in options2"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+          :disabled="item.disabled">
+        </el-option>
+      </el-select>
+      <el-select v-if="value2 == ''? '' :'disabled'" v-model="value3" placeholder="选择月份">
+        <el-option
+          v-for="item in options3"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+          :disabled="item.disabled">
+        </el-option>
+      </el-select>
     </div>
   </div>
 </template>
@@ -40,7 +53,43 @@
       return {
         msg: 'info',
         loginShow:false,
-        mt:false
+        mt:false,
+        options2: [{
+          value: '2019',
+          label: '2019'
+        }, {
+          value: '2018',
+          label: '2018',
+          disabled: true
+        }, {
+          value: '2017',
+          label: '2017'
+        }, {
+          value: '2016',
+          label: '2016'
+        }, {
+          value: '选项5',
+          label: '2015'
+        }],
+        options3: [{
+          value: '1',
+          label: '1月'
+        }, {
+          value: '2',
+          label: '2月',
+          disabled: true
+        }, {
+          value: '3',
+          label: '3月'
+        }, {
+          value: '4',
+          label: '4月'
+        }, {
+          value: '5',
+          label: '5月'
+        }],
+        value2:'',
+        value3:''
       }
     },
     components:{
@@ -60,10 +109,22 @@
       removeLogin(){
         this.OUT_USER()
       },
-      getHello(){
-        this.mt = !this.mt
-      },
-    }
+    },
+    mounted () {
+      $('body').click(function(){
+        console.log(this.value2)
+        console.log(this.value3)
+      }.bind(this));
+      let n = 1;
+      let m = document.getElementById('onc');
+      m.onclick = ()=>{
+        console.log(n++);
+      }
+
+      $('#onc').on('click',function(){
+        $(this).next('span').html(n++);
+      })
+    },
   }
 </script>
 
