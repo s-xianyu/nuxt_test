@@ -1,6 +1,7 @@
 <template>
   <div>
    <h2>{{msg}}</h2>
+    <nuxt-link to="/info">子组件</nuxt-link>
   </div>
 </template>
 

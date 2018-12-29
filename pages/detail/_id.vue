@@ -1,5 +1,7 @@
 <template>
   <h2>
+    范围：{{assessPrice}}</br>
+    <hr>
     车辆ID:{{car.carId}}</br>
     车辆名称:{{car.brandFullName}}
   </h2>
@@ -14,10 +16,7 @@
         msg: 'detail',
       }
     },
-    // validate({ params }) {
-    //   return !isNaN(+params.id);
-    // },
-    async asyncData({ params, error }) {
+    async asyncData({ params }) {
       try{
         let uid = { id:params.id}
         const { data } = await axios.get(`/api/mobile/carDetail.json`,{params:uid})

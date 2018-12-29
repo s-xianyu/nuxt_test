@@ -30,7 +30,6 @@
 </template>
 
 <script>
-  import axios from '../../.nuxt/axios'
   export default {
     data() {
       return {
