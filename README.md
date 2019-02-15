@@ -1,22 +1,45 @@
 # nuxt
 
-> My awe-inspiring Nuxt.js project
+> 个人练习小小demo
 
-## Build Setup
+## 项目运行
 
 ``` bash
-# install dependencies
-$ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+git clone git@github.com:s-xianyu/nuxt_test.git
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+cd nuxt_text
 
-# generate static project
-$ yarn run generate
+npm install  或 yarn(推荐)
+
+npm run dev
+
+npm run build  打包(生成dist)
+
+npm run start  打包完成后启动
+
 ```
+
+
+# 项目布局
+
+```
+│  index.vue  默认页
+│  list.text  
+│  README.md
+│  
+├─detail
+│      _id.vue  车辆详情页
+│      
+├─hx
+│  │  amend.vue  设置页
+│  │  info.vue   关于页
+│  │  reg.vue   充值页
+│  │  
+│  └─page
+│          scroll.vue  滚动置顶页
+│          
+└─page   page目录
+
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
