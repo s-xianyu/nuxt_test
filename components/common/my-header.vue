@@ -1,20 +1,20 @@
 <template>
   <div class="header">
     <div class="head">
-      <div class="left"><router-link to="/">Hello Mr</router-link></div>
+      <div class="left"><nuxt-link to="/">Hello Mr</nuxt-link></div>
       <div class="right">
         <ul>
-          <router-link tag="li" to="/"><span>首页</span></router-link>
-          <router-link tag="li" to="/hx/reg"><span>充值</span></router-link>
-          <router-link tag="li" to="/hx/amend"><span>修改</span></router-link>
-          <router-link tag="li" to="/hx/info"><span>关于</span></router-link>
+          <nuxt-link tag="li" to="/"><span>首页</span></nuxt-link>
+          <nuxt-link tag="li" to="/hx/reg"><span>充值</span></nuxt-link>
+          <nuxt-link tag="li" to="/hx/amend"><span>修改</span></nuxt-link>
+          <nuxt-link tag="li" to="/hx/info"><span>关于</span></nuxt-link>
           <li @click="openLogin" v-if="!isLogin"><span>登录<i class="el-icon-caret-bottom"></i></span></li>
           <li v-else>
             <span  @click="userToggle = !userToggle">欢迎您<i class="el-icon-caret-bottom"></i></span>
             <div class="userShow" v-if="userToggle">
               <ol>
                 <li>
-                  <router-link tag="span" to="/"><img src="/timg.jpg" alt=""></router-link>
+                  <nuxt-link tag="span" to="/"><img src="/timg.jpg" alt=""></nuxt-link>
                   <span>{{loginInfo}}</span>
                 </li>
                 <li><span @click="removeLogin">退出登录</span></li>
