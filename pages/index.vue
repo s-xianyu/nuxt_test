@@ -1,9 +1,13 @@
 <template>
-  <my-list/>
+  <div>
+    <my-list/>
+    <my-top/>
+  </div>
 </template>
 
 <script>
   import MyList from '../components/list/my-list'
+  import MyTop from '../components/common/my-top'
   export default {
     head(){
       return {
@@ -15,7 +19,8 @@
       }
     },
     components:{
-      MyList
+      MyList,
+      MyTop
     },
     data () {
       { project: 'default' }

@@ -18,10 +18,10 @@
             <i class="line"></i>
           </div>
           <div class="hover">
-            <router-link :to="{path:'/detail/'+item.id}">
+            <nuxt-link :to="{path:'/detail/'+item.id}">
               <p>本车可议价</p>
               <p>查看详情</p>
-            </router-link>
+            </nuxt-link>
           </div>
         </li>
       </ul>

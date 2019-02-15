@@ -1,10 +1,12 @@
 <template>
   <div class="amend">
     <div id="container" style="max-width: 1200px;height:400px;"></div>
+    <my-top/>
   </div>
 </template>
 
 <script>
+  import MyTop from '../../components/common/my-top'
   export default {
     head(){
       return {
@@ -121,6 +123,9 @@
       if (option && typeof option === "object") {
         myChart.setOption(option, true);
       }
+    },
+    components:{
+      MyTop
     }
   }
 </script>

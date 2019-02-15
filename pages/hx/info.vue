@@ -5,13 +5,6 @@
     <login :loginShow="loginShow" v-on:loginHide="loginHideFun"/>
     <el-button id="onc" type="primary" round>引入jqery 点击事件</el-button>
     <span class="number">0</span>
-    <div class="carousel">
-      <el-carousel :interval="4000" type="card" height="200px">
-        <el-carousel-item v-for="item in 6" :key="item">
-          <h3>{{ item }}</h3>
-        </el-carousel-item>
-      </el-carousel>
-    </div>
     <div class="input">
       初次上牌日期：
       <el-select v-model="value2" placeholder="选择年份">
@@ -33,11 +26,13 @@
         </el-option>
       </el-select>
     </div>
+    <my-top/>
   </div>
 </template>
 
 <script>
   import Login from '../../components/common/my-login'
+  import MyTop from '../../components/common/my-top'
   import { mapMutations, mapState } from 'vuex'
   export default {
     head(){
@@ -93,7 +88,8 @@
       }
     },
     components:{
-      Login
+      Login,
+      MyTop
     },
     computed:{
       ...mapState(['isLogin'])
@@ -111,10 +107,10 @@
       },
     },
     mounted () {
-      $('body').click(function(){
-        console.log(this.value2)
-        console.log(this.value3)
-      }.bind(this));
+      // $('body').click(function(){
+      //   console.log(this.value2)
+      //   console.log(this.value3)
+      // }.bind(this));
       let n = 1;
       let m = document.getElementById('onc');
       m.onclick = ()=>{
@@ -132,25 +128,5 @@
   h2{
     padding:400px 0;
     text-align: center;
-  }
-  .carousel{
-    width:60%;
-    margin:100px auto 0;
-  }
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-    text-align: center;
-  }
-
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
   }
 </style>

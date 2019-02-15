@@ -5,9 +5,9 @@
       <div class="right">
         <ul>
           <router-link tag="li" to="/"><span>首页</span></router-link>
-          <router-link tag="li" to="/page/reg"><span>充值</span></router-link>
-          <router-link tag="li" to="/page/amend"><span>修改</span></router-link>
-          <router-link tag="li" to="/page/info"><span>关于</span></router-link>
+          <router-link tag="li" to="/hx/reg"><span>充值</span></router-link>
+          <router-link tag="li" to="/hx/amend"><span>修改</span></router-link>
+          <router-link tag="li" to="/hx/info"><span>关于</span></router-link>
           <li @click="openLogin" v-if="!isLogin"><span>登录<i class="el-icon-caret-bottom"></i></span></li>
           <li v-else>
             <span  @click="userToggle = !userToggle">欢迎您<i class="el-icon-caret-bottom"></i></span>
